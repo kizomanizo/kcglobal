@@ -1,0 +1,24 @@
+.custom_shadow {
+	color: white;
+	text-shadow:
+		1px 1px 0 rgba(48, 50, 58, 0.1),
+		-1px -1px 0 rgba(48, 50, 58, 0.1),  
+		1px -1px 0 rgba(48, 50, 58, 0.1),
+		-1px 1px 0 rgba(48, 50, 58, 0.1),
+		1px 1px 0 rgba(48, 50, 58, 0.1);
+}
+
+.custom_stroke {
+	-webkit-text-stroke: 1px black;
+}
+
+.custom_shadow_stroke {
+	-webkit-text-stroke: 1px #a79344;
+	color: white;
+	text-shadow:
+		3px 3px 0 #a79344,
+		-1px -1px 0 #a79344,  
+		1px -1px 0 #a79344,
+		-1px 1px 0 #a79344,
+		1px 1px 0 #a79344;
+}
