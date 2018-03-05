@@ -111,7 +111,47 @@
 								</div>
 								<strong class="text-uppercase">Ingia Ndani Sasa</strong><br>
 							</div>
-							<a href="{{ route('login') }}" class="text-uppercase">Ingia</a> / <a href="{{ route('register') }}" class="text-uppercase">Jiunge</a>
+							<!-- <a href="{{ route('login') }}" class="text-uppercase">Ingia</a> / <a href="{{ route('register') }}" class="text-uppercase">Jiunge</a> -->
+							<a href="#" data-toggle="modal" data-target="#login-modal" class="text-uppercase">Ingia</a> / <a href="{{ route('register') }}" class="text-uppercase">Jiunge</a>
+
+							<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+								<div class="modal-dialog">
+									<div class="loginmodal-container">
+										<h1>Ingia kwa akaunti yako</h1><br>
+										<form method="POST" action="{{ route('login') }}">
+											@csrf
+											<input type="text" name="email" id="email" placeholder="Email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" required autofocus>
+											@if ($errors->has('email'))
+			                                    <span class="invalid-feedback">
+			                                        <strong>{{ $errors->first('email') }}</strong>
+			                                    </span>
+			                                @endif
+											<input type="password" name="password" id="password" placeholder="Password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}">
+											@if ($errors->has('password'))
+			                                    <span class="invalid-feedback">
+			                                        <strong>{{ $errors->first('password') }}</strong>
+			                                    </span>
+			                                @endif
+											<input type="submit" name="login" class="btn login loginmodal-submit btn-secondary" value="Login">
+										</form>
+
+										<div class="login-help">
+											<div class="form-group row">
+												<div class="col-md-6 offset-md-4">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Usinisahau
+														</label>
+													</div>
+												</div>
+											</div>
+											<a href="{{ route('password.request') }}">Forgot Password</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
 						</li>
 						@else
 						<li class="header-account dropdown default-dropdown">
@@ -124,7 +164,7 @@
 							<ul class="custom-menu">
 								<li><a href="#"><i class="fa fa-user-circle-o"></i> Maelezo yangu</a></li>
 								<li>
-									<a href="{{ route('logout') }}"
+									<a 	href="{{ route('logout') }}"
 										onclick="event.preventDefault();
 										document.getElementById('logout-form').submit();">
 										<i class="fa fa-hand-paper-o"></i> Ondoka/Logout

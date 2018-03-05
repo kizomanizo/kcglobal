@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/auction', 'AuctionController@index')->name('auction');
+
+// custom user managment routes
+Route::resource('users', 'UserController');
+
+// Available item resource routes
+Route::resource('items', 'ItemController');
