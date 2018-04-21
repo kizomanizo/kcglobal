@@ -4,6 +4,16 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
+
             <div class="card">
                 <div class="card-header">Register</div>
 
@@ -15,7 +25,7 @@
                             <label for="firstname" class="col-md-4 col-form-label text-md-right">Jina la kwanza</label>
 
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="nfirstame" value="{{ old('firstname') }}" required title="Ni lazima kujaza jina la kwanza" autofocus>
+                                <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" required title="Ni lazima kujaza jina la kwanza" autofocus>
 
                                 @if ($errors->has('firstname'))
                                     <span class="invalid-feedback">
